@@ -37,8 +37,7 @@ bool SLinkedList<T>::empty() const {
   if (!head)
     return true;
   else 
-    return false;
-    
+    return false;  
 }
 
 // Returns the value stored at index
@@ -61,7 +60,7 @@ const T &SLinkedList<T>::value_at(int index) const {
 template <class T>
 const T &SLinkedList<T>::front() const {
   if(empty()) throw OutOfBounds();
-  return value_at(0);
+  return head->value;
 }
 
 // Returns last value in list
@@ -92,7 +91,7 @@ const T &SLinkedList<T>::value_from_back(int n) const {
 template <class T>
 T SLinkedList<T>::pop_front() {
   if(empty()) throw OutOfBounds();
-  auto returnVal = front();
+  auto returnVal = head->value;
   erase(0);
   return returnVal;
 }
