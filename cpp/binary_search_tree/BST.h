@@ -23,7 +23,7 @@ class BST {
   ~BST() { this->deleteTree(); }
 
   void insert(const int);
-  void printValues(); // Inorder (sorted)
+  void printValues();
   void deleteTree();
   void deleteValue(const int);
 
@@ -31,7 +31,7 @@ class BST {
   int getHeight();
   int getMinValue();
   int getMaxValue();
-  int getSuccessorValue(const int); //REVISIT THIS
+  int getSuccessorValue(const int);
 
   bool isInTree(const int);
   bool isBST();
