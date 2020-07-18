@@ -125,14 +125,50 @@ void MaxHeap::swap(int a, int b) {
   data[b].key = temp.key;
   data[b].value = temp.value;
 }
-/*
-void heapify(int* values) {
 
+void heapify(int* values, int size) {
+  for (int index = size / 2 - 1; index >=0; --index) {
+    bubbleDown(values, size, index);
+  }
 }
 
-void heapSort(int* values) {
+void heapSort(int* values, int size) {
+  heapify(values, size);
 
+  for (int index = size - 1; index > 0; --index) {
+    int temp = values[0];
+    values[0] = values[index];
+    values[index] = temp;
+    bubbleDown(values, index, 0);
+  }
 }
-*/
+
+void bubbleDown(int* values, int size, int index) {
+  bool swapped = true;
+  int leftChild = (index * 2) + 1,
+        rightChild = (index * 2) + 2,
+        childToSwap;
+  
+  while (index < size && swapped && leftChild < size) {
+    swapped = false;
+    
+    // If a right child exists, compare left and right child for max
+    if (rightChild < size)
+      childToSwap = (values[leftChild] > values[rightChild]) ? leftChild : rightChild;
+    else // If only left child, no comparison needed
+      childToSwap = leftChild;
+
+    // If a swap is necessary
+    if (values[index] < values[childToSwap]) {
+      int temp = values[index];
+      values[index] = values[childToSwap];
+      values[childToSwap] = temp;
+      swapped = true;
+      index = childToSwap;
+      leftChild = (index * 2) + 1;
+      rightChild = (index * 2) + 2;
+    }
+  }
+}
 
 }

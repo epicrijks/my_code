@@ -35,8 +35,9 @@ class MaxHeap {
   void swap(int, int);
 };
 
-// void heapify(int*);
-// void heapSort(int*);
+void heapify(int*, int);
+void heapSort(int*, int);
+void bubbleDown(int*, int, int);
 
 }
 
