@@ -1,0 +1,5 @@
+Give three examples of life-critical software applications.
+
+1. AED
+2. Pacemaker
+3. Airplane guidance
