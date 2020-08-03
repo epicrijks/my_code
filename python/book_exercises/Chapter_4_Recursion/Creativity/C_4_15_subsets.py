@@ -1,3 +1,5 @@
+# Credit: https://stackoverflow.com/questions/26332412/python-recursive-function-to-display-all-subsets-of-given-set
+
 def subs(l):
     if l == []:
         return [[]]
